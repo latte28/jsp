@@ -53,24 +53,39 @@
 <script>
 	function fnJoin(){
 		let join = document.join;
+		if(join.id.value.length == ""){
+			alert("아이디를 입력해주세요!");
+			join.id.focus();
+			return;
+		}
 		if(join.id.value.length<6){
-			alert("아이디를 6글자 이상입력해주세요!");
-			join.id.focus()
+			alert("아이디를 6글자 이상 입력해주세요!");
+			join.id.focus();
+			return;
+		}
+		
+		if(join.pwd.value != join.pwd2.value){
+			alert("비밀번호를 일치하지 않습니다.");
+			join.pwd2.focus();
+			return;
+		}
+		if(join.pwd.value.length == ""){
+			alert("비밀번호를 입력해주세요!");
+			join.pwd.focus();
 			return;
 		}
 		if(join.pwd.value.length<6){
-			alert("비밀번호를 6글자 이상입력해주세요!");
-			join.pwd.focus()
+			alert("비밀번호를 6글자 이상 입력해주세요!");
+			join.pwd.focus();
 			return;
 		}
-		if(join.pwd.value != join.pwd2.value){
-			alert("비밀번호를 일치하지 않습니다.");
-			join.pwd2.focus()
-			return;
-		}
-		const regExp = /^[a-z0-9_]{4,20}$/;
 		
-		
+		var specialRule = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+	    if(!specialRule.test(join.pwd.value)){
+	        alert("비밀번호 특수문자 필수!");
+	        join.pwd.focus();
+	        return;
+	    } 	
 		join.submit();
 	}
 	
