@@ -34,7 +34,7 @@
 		
 	</form>
 </body>
-</html>
+
 <script>
 	let checkFlg = false;
 	function fnStuInsert(){
@@ -80,7 +80,7 @@
 	
 
 </script>
-
+</html>
 
 
 

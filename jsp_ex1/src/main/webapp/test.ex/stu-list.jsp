@@ -48,7 +48,13 @@
 	%>
 	</table>
 	<div>
-		<button>학생 추가</button>
+		<button onclick="fnMove()">학생 추가</button>
 	</div>
 </body>
+
+<script>
+	function fnMove(){
+		location.href = "stu-add.jsp";
+	}
+</script>
 </html>

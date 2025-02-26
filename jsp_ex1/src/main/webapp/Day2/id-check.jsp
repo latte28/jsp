@@ -33,12 +33,11 @@
 	</form>
 	
 </body>
-</html>
+
 <script>
 	function fnBack(){
 		window.opener.getReturn(document.check.flg.value);
 		window.close();
 	}
-
-
 </script>
+</html>

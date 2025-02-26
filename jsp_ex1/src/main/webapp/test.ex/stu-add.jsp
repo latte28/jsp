@@ -18,7 +18,7 @@
 	</form>	
 
 </body>
-</html>
+
 <script>
 	function fnInsert(){
 		let stu = document.stu;
@@ -38,3 +38,4 @@
 	}
 
 </script>
+</html>
