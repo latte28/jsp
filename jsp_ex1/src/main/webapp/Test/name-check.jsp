@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@ include file ="../db.jsp" %>
+	<form name="check">
+	<%
+		String itemName = request.getParameter("itemName");
+		
+		String query = "SELECT * FROM TBL_PRODUCT WHERE ITEM_NAME ='" + itemName + "'";
+		ResultSet rs = stmt.executeQuery(query);
+		
+		if(rs.next()){
+			out.println("사용중인 제품입니다.<br> 다른거 쓰세요");
+	%>
+		<input name="flg" value="Y" hidden>
+	<% 
+		}else{
+			out.println("사용 가능!");		
+	%>
+		<input name="flg" value="N" hidden >
+	<%
+		}
+	%>
+	<div>
+		<input type="button" onclick="fnBack()" value="되돌아가기">
+	</div>
+	</form>
+</body>
+<script>
+	function fnBack(){
+		window.opener.getReturn(document.check.flg.value);
+		window.close();
+	}
+</script>
+</html>
